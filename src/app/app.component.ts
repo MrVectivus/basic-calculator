@@ -10,14 +10,14 @@ export class AppComponent {
   title = 'calculator';
 
   //Variables
-  firstNumber: string = '';
+  firstNumber: number = 0;
   operator: string = '';
   operandCheck: boolean = false;
-  secondNumber: string = '';
+  secondNumber: number = 0;
   result: string = '';
 
   //Checks operand to send value to number1 or number2 for calculation
-  pressNum(num: string) {
+  pressNum(num: number) {
     switch (this.operandCheck) {
     case false:
       this.firstNumber = this.firstNumber + num
@@ -59,8 +59,8 @@ export class AppComponent {
 
   clear(){
     this.result = ""
-    this.firstNumber = ""
-    this.secondNumber = ""
+    this.firstNumber = 0
+    this.secondNumber = 0
     this.operandCheck = false;
   }
 
