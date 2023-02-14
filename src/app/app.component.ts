@@ -18,44 +18,50 @@ export class AppComponent {
 
   //Checks operand to send value to number1 or number2 for calculation
   pressNum(num: string) {
-    if (this.operandCheck = false){
+    switch (this.operandCheck) {
+    case false:
       this.firstNumber = this.firstNumber + num
-    }
-    else {
+      break;
+    case true:
       this.secondNumber = this.secondNumber + num
-    }
+  }
 
     this.result = this.result + num
   }
 
-  //Switches operandCheck boolean
+  //Switches 
   pressOperator(op: string) {
-    this.operator = this.operator + op
-    this.operandCheck = true;
-    this.result = this.result + op
-  }
-
-  calcAnswer(){
-    if (this.operator = '+'){
+    switch (op) {
+    case '+':
       Number(this.firstNumber) + Number(this.secondNumber)
-    }
-    else if (this.operator = "-"){
+      this.result = this.result + op
+
+      break;
+    case '-':
       Number(this.firstNumber) - Number(this.secondNumber)
-    }
-    else if (this.operator = "*"){
+      this.result = this.result + op
+
+      break;
+    case '*':
       Number(this.firstNumber) * Number(this.secondNumber)
-    }
-    else if (this.operator = "/"){
+      this.result = this.result + op
+
+      break;
+    case '/':
       Number(this.firstNumber) / Number(this.secondNumber)
-    }
-    else if (this.operator = "=") {
+      this.result = this.result + op
+
+      break;
+    case '=':
       this.result = String(this.firstNumber)
     }
-
-    }
+  }
 
   clear(){
     this.result = ""
+    this.firstNumber = ""
+    this.secondNumber = ""
+    this.operandCheck = false;
   }
 
 
