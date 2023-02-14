@@ -20,7 +20,7 @@ export class AppComponent {
   pressNum(num: number) {
     switch (this.operandCheck) {
     case false:
-      this.firstNumber = this.firstNumber + num
+      this.firstNumber = this.firstNumber + num 
       break;
     case true:
       this.secondNumber = this.secondNumber + num
@@ -29,32 +29,39 @@ export class AppComponent {
     this.result = this.result + num
   }
 
-  //Switches 
+
+
+  //operator buttons
   pressOperator(op: string) {
-    switch (op) {
-    case '+':
-      Number(this.firstNumber) + Number(this.secondNumber)
-      this.result = this.result + op
+    this.operator = this.operator + op
+    this.result = this.result + this.operator
+    this.operandCheck = true;
 
-      break;
-    case '-':
-      Number(this.firstNumber) - Number(this.secondNumber)
-      this.result = this.result + op
+  }
 
-      break;
-    case '*':
-      Number(this.firstNumber) * Number(this.secondNumber)
-      this.result = this.result + op
+  //the shit
+  calcFormula(operatorInput: string) {
+    switch (operatorInput) {
+      case '+':
+        (this.firstNumber) = Number(this.firstNumber) + Number(this.secondNumber)
+        break;
+      case '-':
+        (this.firstNumber) = Number(this.firstNumber) - Number(this.secondNumber)
+        break;
+      case 'x':
+        (this.firstNumber) = Number(this.firstNumber) * Number(this.secondNumber)
+        break;
+      case '/':
+        (this.firstNumber) = Number(this.firstNumber) / Number(this.secondNumber)
+        break;
+      }
 
-      break;
-    case '/':
-      Number(this.firstNumber) / Number(this.secondNumber)
-      this.result = this.result + op
+  }
 
-      break;
-    case '=':
+  useFormula() {
+      this.calcFormula(this.operator);
       this.result = String(this.firstNumber)
-    }
+
   }
 
   clear(){
@@ -62,6 +69,7 @@ export class AppComponent {
     this.firstNumber = 0
     this.secondNumber = 0
     this.operandCheck = false;
+    this.operator = ""
   }
 
 
