@@ -10,10 +10,11 @@ export class AppComponent {
   title = 'calculator';
 
   //Variables
-  firstNumber: number = 0;
+  firstNumber: string = '';
   operator: string = '';
   operandCheck: boolean = false;
-  secondNumber: number = 0;
+  secondNumber: string = '';
+  finalNumber: number = 0;
   result: string = '';
 
   //Checks operand to send value to number1 or number2 for calculation
@@ -43,16 +44,16 @@ export class AppComponent {
   calcFormula(operatorInput: string) {
     switch (operatorInput) {
       case '+':
-        (this.firstNumber) = Number(this.firstNumber) + Number(this.secondNumber)
+        this.finalNumber = parseInt(this.firstNumber) + parseInt(this.secondNumber)
         break;
       case '-':
-        (this.firstNumber) = Number(this.firstNumber) - Number(this.secondNumber)
+        this.finalNumber = parseInt(this.firstNumber) - parseInt(this.secondNumber)
         break;
       case 'x':
-        (this.firstNumber) = Number(this.firstNumber) * Number(this.secondNumber)
+        this.finalNumber = parseInt(this.firstNumber) * parseInt(this.secondNumber)
         break;
       case '/':
-        (this.firstNumber) = Number(this.firstNumber) / Number(this.secondNumber)
+        this.finalNumber = parseInt(this.firstNumber) / parseInt(this.secondNumber)
         break;
       }
 
@@ -60,14 +61,14 @@ export class AppComponent {
 
   useFormula() {
       this.calcFormula(this.operator);
-      this.result = String(this.firstNumber)
+      this.result = String(this.finalNumber);
 
   }
 
   clear(){
     this.result = ""
-    this.firstNumber = 0
-    this.secondNumber = 0
+    this.firstNumber = ''
+    this.secondNumber = ''
     this.operandCheck = false;
     this.operator = ""
   }
